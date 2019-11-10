@@ -30,6 +30,7 @@ SMRVFX https://github.com/keijiro/Smrvfx
 - Main scene name - Combined
 
 ###### Explanation of Components: 
+- Everything listed below needs to change!
 - Spawn Points(1,2,3) - 2 player spawn points and 1 third person viewer spawn point. 
 - NetworkManagerPhoton - The script manages the networking side of things. You can pass on spawn points and player prefab names. The player prefabs have to be kept in the Asset/Resources folder. (Requirement from Photon).
 - NoloManager - Takes care of the controllers. There is a development app key that is already keyed in. In case you want to make your own project, it is - 4e4f4c4f484f4d457eff82725bc694a5(Otherwise it won't work). A camera needs to be assigned to the manager script which in our case is done by a script in the player prefab. 
