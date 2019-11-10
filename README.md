@@ -4,10 +4,12 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/prasanthsasikumar/HyperdrumDemo)
 
-This project explores how Virtual Reality(VR) can be used to help people understand each other better in face-to-face and remote collaboration, with the ultimate goal of designing an empathic computing interface.  Simultaneous and classification of data from multiple physiological sensors will be carried out to study inter-brain synchrony cognitive load and emotional responses of two or more collaborators in real and virtual environments.
+HyperDrum: Interactive Synchronous Drumming in Virtual Reality using Everyday Objects
+
+HyperDrum, which is about leveraging this cognitive synchronization to create a collaborative music production experience with immersive visualization in virtual reality. Participants will wear an electroencephalography (EEG) head-mounted display to create music and VR space together using a physical drum.
 
 
-This section explains the implementation of VR set up used. We used two VR headsets( HTC vive) for the experiment.  Both the devices were synced over the internet and we used a computer to obtain a third person view. 
+This section explains the implementation of VR set up used. We used two VR headsets( HTC vive) for the experiment. Both the devices were synchronized over a network connection.
 
 
 # REQUIREMENTS
@@ -17,17 +19,15 @@ This section explains the implementation of VR set up used. We used two VR heads
 - We have used Unity 2019.1.1f1, but should be backwards compatible. 
 
 # CREDITS
-OSCCORE
-SMVFX
+OSCCORE https://github.com/stella3d/OscCore
+SMRVFX https://github.com/keijiro/Smrvfx
+
 
 # TECHNICAL SPECIFICATIONS
 
-### Building
-- Android - Select Android from the build settings menu, details in the player settings would already be filled out. Select device, press build and run. 
-- Windows/PC/Mac - Select the appropriate option from the menu, click switch platform, It might take about 10 minutes to convert files. Run. This is for the third person view. Hence run this program after both the mobile VR devices have connected.  
 
 ### Structure
-- Main scene name - MarksOfficePhoton
+- Main scene name - Combined
 
 ###### Explanation of Components: 
 - Spawn Points(1,2,3) - 2 player spawn points and 1 third person viewer spawn point. 
@@ -36,8 +36,10 @@ SMVFX
 - Room - The environment. (Horrible rendition of Marks room at ECL, ABI)
 
 ### Interaction
-- Double tap the menu button to orient the view.
-- Use trigger to change the player.
+- Attach controllers at the end of the drumsticks for tracking
+- Produces circles to hit based on music
+- changes visualizations based on PLV(brain Synchronization).
+
 
 ### Downloads(Source code)
 - Please find the source code here - https://github.com/prasanthsasikumar/HyperdrumDemo
