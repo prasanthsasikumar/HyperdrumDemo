@@ -1,66 +1,50 @@
-# HyperdrumDemo [VR App]
+Rsvfx
+-----
 
-[![N|Solid](https://github.com/prasanthsasikumar/localMultiplayer/blob/master/powerdByLogo.png)](http://empathiccomputing.org/)
+**Rsvfx** is an example that shows how to connect an Intel [RealSense] depth
+camera to a Unity [Visual Effect Graph].
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/prasanthsasikumar/HyperdrumDemo)
+![gif](https://i.imgur.com/K0C80Lf.gif)
+![gif](https://i.imgur.com/jBxII0t.gif)
 
-HyperDrum: Interactive Synchronous Drumming in Virtual Reality using Everyday Objects
+[RealSense]: https://realsense.intel.com/
+[Visual Effect Graph]: https://unity.com/visual-effect-graph
 
-HyperDrum, which is about leveraging this cognitive synchronization to create a collaborative music production experience with immersive visualization in virtual reality. Participants will wear an electroencephalography (EEG) head-mounted display to create music and VR space together using a physical drum.
+System requirements
+-------------------
 
+- Unity 2019.2 or later
+- Intel RealSense D400 series
 
-This section explains the implementation of VR set up used. We used two VR headsets( HTC vive) for the experiment. Both the devices were synchronized over a network connection.
+How it works
+------------
 
+![inspector](https://i.imgur.com/JWEUhXh.png)
 
-# REQUIREMENTS
-- Two VR headsets
-- Two Intel Realsense 400 series cameras mounted infront of the VR headsets(we used D415 cameras)
-- For real-time syncing between computers, we used OSC triggers triggered from another computer
-- We have used Unity 2019.1.1f1, but should be backwards compatible. 
+The [PointCloudBaker] component converts a point cloud stream sent from a
+RealSense device into two dynamically animated attribute maps: position map and
+color map. These maps can be used in the "Set Position/Color from Map" blocks
+in a VFX graph, in the same way as attribute maps imported from a point cache
+file.
 
-# CREDITS
-OSCCORE https://github.com/stella3d/OscCore
-SMRVFX https://github.com/keijiro/Smrvfx
+![blocks](https://i.imgur.com/mEY3I2d.png)
 
+[PointCloudBaker]: /Assets/Rsvfx/PointCloudBaker.cs
 
-# TECHNICAL SPECIFICATIONS
+Frequently asked questions
+--------------------------
 
+**Is it possible with Azure Kinect?**
 
-### Structure
-- Main scene name - Combined
+There is a project for you. Check out [Akvfx].
 
-###### Explanation of Components: 
-- Everything listed below needs to change!
-- Spawn Points(1,2,3) - 2 player spawn points and 1 third person viewer spawn point. 
-- NetworkManagerPhoton - The script manages the networking side of things. You can pass on spawn points and player prefab names. The player prefabs have to be kept in the Asset/Resources folder. (Requirement from Photon).
-- NoloManager - Takes care of the controllers. There is a development app key that is already keyed in. In case you want to make your own project, it is - 4e4f4c4f484f4d457eff82725bc694a5(Otherwise it won't work). A camera needs to be assigned to the manager script which in our case is done by a script in the player prefab. 
-- Room - The environment. (Horrible rendition of Marks room at ECL, ABI)
+[Akvfx]: https://github.com/keijiro/Akvfx
 
-### Interaction
-- Attach controllers at the end of the drumsticks for tracking
-- Produces circles to hit based on music
-- changes visualizations based on PLV(brain Synchronization).
+**Which RealSense model fits best?**
 
+I personally recommend D415 because it gives the best sample density in the
+current models. Please see [this thread][D415 thread] for further information.
 
-### Downloads(Source code)
-- Please find the source code here - https://github.com/prasanthsasikumar/HyperdrumDemo
-- Issues can be reported here - https://github.com/prasanthsasikumar/HyperdrumDemo/issues/new
-
-
-
-### Todos
-
- - Add the trigger application(MAX)
- - A lot more work
- 
- ### Videos
- - 
-
-License
-----
-
-MIT
-
-
-**Free Software, Hell Yeah!**
-
+[Depthkit]: https://www.depthkit.tv/
+[Depthkit VFX Graph]: https://twitter.com/Depthkit/status/1099411381751816193
+[D415 thread]: https://twitter.com/_kzr/status/1096282551352619008

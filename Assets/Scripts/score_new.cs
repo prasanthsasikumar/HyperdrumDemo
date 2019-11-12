@@ -9,13 +9,13 @@ public class score_new : MonoBehaviour
     public Text scoreCounter;
     public DrumBeatLogic objFunction;
     public GameObject[] drumsP1;
-    public GameObject[] drumsP2;
+    //public GameObject[] drumsP2;
     public float accuracyP1, accuracyP2, timing, multiplier, finalscore;
 
     // Start is called before the first frame update
     void Start()
     {
-        objFunction = GameObject.Find("beat_circle").GetComponent<DrumBeatLogic>();
+        objFunction = GameObject.Find("DrumBeatLogic").GetComponent<DrumBeatLogic>();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class score_new : MonoBehaviour
         
         //accuracyP1 = Vector3.Distance(this.transform.position, drum.transform.position);
 
-        gameObject.GetComponent<TextMesh>().text = finalscore.ToString();
+        gameObject.GetComponent<TextMesh>().text = objFunction.score.ToString();
 
     }
 

@@ -5,8 +5,7 @@ using UnityEngine;
 public class DrumBeatLogic : MonoBehaviour
 {
     Vector3[] positions = new Vector3[4];
-
-    public GameObject myPrefab = null;
+    Quaternion[] rotations = new Quaternion[4];
 
     public GameObject[] prefabs = new GameObject[4];
 
@@ -21,10 +20,10 @@ public class DrumBeatLogic : MonoBehaviour
     public int difficulty;
     public float ringSpeed;
 
-    Vector3 speed = new Vector3(0, 0, -1);
+    Vector3 speed = new Vector3(-1, 0, -.3f);
 
-    public int score = 0;
-    public int fail = 0;
+    public int score = 0, lastScore;
+    public int fail = 0, lastFail;
     public Vector3 hitDistance;
 
     public float timer;
@@ -35,16 +34,25 @@ public class DrumBeatLogic : MonoBehaviour
     {
         timerstart = false;
         timer = 0;
+        lastScore = score;
+        lastFail = fail;
         //spawning position
         for (int i = 0; i < drumsP1.Count; i++)
         {
             positions[i] = spawnpoints[i].transform.position;
+            rotations[i] = spawnpoints[i].transform.rotation;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < drumsP1.Count; i++)
+        {
+            positions[i] = spawnpoints[i].transform.position;
+            rotations[i] = spawnpoints[i].transform.rotation;
+        }
+
         /* Generate 2 random circle per spawn point, going both directions */
         if (count < difficulty)
         {
@@ -53,8 +61,10 @@ public class DrumBeatLogic : MonoBehaviour
 
             if (autoGenerate)
             {
-                GameObject beatGO1 = Instantiate(prefabs[drumIndex], positions[drumIndex], Quaternion.identity);
-                GameObject beatGO2 = Instantiate(prefabs[drumIndex], positions[drumIndex], Quaternion.identity);
+                GameObject beatGO1 = Instantiate(prefabs[drumIndex], positions[drumIndex], rotations[drumIndex]);
+                GameObject beatGO2 = Instantiate(prefabs[drumIndex], positions[drumIndex], rotations[drumIndex]);
+                //beatGO1.transform.SetParent(GameObject.Find("DrumGame_module").transform);
+                //beatGO2.transform.SetParent(GameObject.Find("DrumGame_module").transform);
                 checkTrigger_new beat1 = beatGO1.GetComponent<checkTrigger_new>();
                 checkTrigger_new beat2 = beatGO2.GetComponent<checkTrigger_new>();
 
@@ -70,6 +80,7 @@ public class DrumBeatLogic : MonoBehaviour
 
         }
 
+
         if (timerstart)
             timer += Time.deltaTime;
         else
@@ -79,8 +90,10 @@ public class DrumBeatLogic : MonoBehaviour
     public void GenerateCircle(int number)
     {
         drumIndex = Random.Range(0, 4);
-        GameObject beatGO1 = Instantiate(prefabs[drumIndex], positions[drumIndex], Quaternion.identity);
-        GameObject beatGO2 = Instantiate(prefabs[drumIndex], positions[drumIndex], Quaternion.identity);
+        GameObject beatGO1 = Instantiate(prefabs[drumIndex], positions[drumIndex], rotations[drumIndex]);
+        GameObject beatGO2 = Instantiate(prefabs[drumIndex], positions[drumIndex], rotations[drumIndex]);
+        //beatGO1.transform.SetParent(GameObject.Find("DrumGame_module").transform);
+        //beatGO2.transform.SetParent(GameObject.Find("DrumGame_module").transform);
         checkTrigger_new beat1 = beatGO1.GetComponent<checkTrigger_new>();
         checkTrigger_new beat2 = beatGO2.GetComponent<checkTrigger_new>();
         beat1.drum = drumsP1[drumIndex];
