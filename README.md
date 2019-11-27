@@ -30,11 +30,11 @@ SMRVFX https://github.com/keijiro/Smrvfx
 - Main scene name - Combined
 
 ###### Explanation of Components: 
-- Everything listed below needs to change!
-- Spawn Points(1,2,3) - 2 player spawn points and 1 third person viewer spawn point. 
-- NetworkManagerPhoton - The script manages the networking side of things. You can pass on spawn points and player prefab names. The player prefabs have to be kept in the Asset/Resources folder. (Requirement from Photon).
-- NoloManager - Takes care of the controllers. There is a development app key that is already keyed in. In case you want to make your own project, it is - 4e4f4c4f484f4d457eff82725bc694a5(Otherwise it won't work). A camera needs to be assigned to the manager script which in our case is done by a script in the player prefab. 
-- Room - The environment. (Horrible rendition of Marks room at ECL, ABI)
+- Game Design Logic - Drum game stuff including all the spawn points, the rings that fall down etc are managed by this.
+- NetworkManager - Manages all the application parameters remotely. Application Manager script has the toggles for all the parameters
+- InteractionModule - Takes care of the controllers. Map the controllers to the sticks
+- Camera Module - Functions relating to camera(intel D415), and the graphics processing of the image input is done here
+- Camera Rig - Under camera, the camera module attaches itself on runtime to get the particle effect.
 
 ### Interaction
 - Attach controllers at the end of the drumsticks for tracking
