@@ -43,7 +43,7 @@ void Convert(uint3 id : SV_DispatchThreadID)
     float2 uv = float2(RemapBuffer[i * 2], RemapBuffer[i * 2 + 1]);
 
     // Mask from the remapped UV and the depth threashold
-    bool mask = all(0 < uv && uv < 1) && (pos.z < DepthThreshold);
+    bool mask = all(0 < uv && uv < 1) && (pos.z < DepthThreshold) && (pos.z > 1);
 
     // Raw color sample
     uint2 id2 = mask ? uv * MapDimensions : f_uv;

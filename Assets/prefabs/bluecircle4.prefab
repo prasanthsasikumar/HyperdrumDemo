@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1669746514633974399}
   - component: {fileID: 1669746514633974384}
-  - component: {fileID: 1669746514633974385}
   - component: {fileID: 1669746514633974398}
   - component: {fileID: -4148184135819213240}
   - component: {fileID: 439423510455945231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bluecircle4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1669746514633974385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669746514633974386}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01e431397fe4d74b83fcfa3179a9779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  drum: {fileID: 0}
 --- !u!54 &1669746514633974398
 Rigidbody:
   m_ObjectHideFlags: 0

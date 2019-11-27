@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6669143384206603585}
   - component: {fileID: 6669143384206603584}
-  - component: {fileID: 6669143384206603599}
   - component: {fileID: 6669143384206603586}
   - component: {fileID: 7079873258154552211}
   - component: {fileID: 8552344767029976656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bluecircle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6669143384206603598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.35259438, y: 0.522, z: 0.18547167}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6669143384206603599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6669143384206603598}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01e431397fe4d74b83fcfa3179a9779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  drum: {fileID: 0}
 --- !u!54 &6669143384206603586
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -99,6 +99,7 @@ public class ApplicationController : MonoBehaviour
     //Manages Application based on control input received from server
     public void ManageApplication(int receivedParameter)
     {
+        print("Value "+receivedParameter);
         if (CheckActionDoneBefore(receivedParameter))
             return;
 
@@ -111,15 +112,16 @@ public class ApplicationController : MonoBehaviour
                 PLVOverride = false;
                 break;
             case (int)ApplicationParameters.remoteBeatsEnable:
-                GameObject.Find("DrumBeatLogic").GetComponent<DrumBeatLogic>().autoGenerate = false;
+                autoGenerateCircles = false;
                 break;
             case (int)ApplicationParameters.remoteBeatsDisable:
-                GameObject.Find("DrumBeatLogic").GetComponent<DrumBeatLogic>().autoGenerate = true;
+                autoGenerateCircles = true;
                 break;
             case (int)ApplicationParameters.startDemo:
                 SwitchMeshRenderer(true);
                 break;
             case (int)ApplicationParameters.stopDemo:
+                GameObject.Find("DrumBeatLogic").GetComponent<DrumBeatLogic>().score = 0;
                 SwitchMeshRenderer(false);
                 break;
             case (int)ApplicationParameters.reloadScene:
